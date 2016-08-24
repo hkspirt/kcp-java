@@ -38,20 +38,20 @@ public abstract class KCP {
         return p[0 + offset];
     }
 
-    /* encode 16 bits unsigned int (lsb) */
+    /* encode 16 bits unsigned int (msb) */
     public static void ikcp_encode16u(byte[] p, int offset, int w) {
         p[offset + 0] = (byte) (w >> 8);
         p[offset + 1] = (byte) (w >> 0);
     }
 
-    /* decode 16 bits unsigned int (lsb) */
+    /* decode 16 bits unsigned int (msb) */
     public static int ikcp_decode16u(byte[] p, int offset) {
         int ret = (p[offset + 0] & 0xFF) << 8
                 | (p[offset + 1] & 0xFF);
         return ret;
     }
 
-    /* encode 32 bits unsigned int (lsb) */
+    /* encode 32 bits unsigned int (msb) */
     public static void ikcp_encode32u(byte[] p, int offset, long l) {
         p[offset + 0] = (byte) (l >> 24);
         p[offset + 1] = (byte) (l >> 16);
@@ -59,7 +59,7 @@ public abstract class KCP {
         p[offset + 3] = (byte) (l >> 0);
     }
 
-    /* decode 32 bits unsigned int (lsb) */
+    /* decode 32 bits unsigned int (msb) */
     public static long ikcp_decode32u(byte[] p, int offset) {
         long ret = (p[offset + 0] & 0xFF) << 24
                 | (p[offset + 1] & 0xFF) << 16
