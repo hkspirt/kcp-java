@@ -61,10 +61,10 @@ public abstract class KCP {
 
     /* decode 32 bits unsigned int (msb) */
     public static long ikcp_decode32u(byte[] p, int offset) {
-        long ret = (p[offset + 0] & 0xFF) << 24
-                | (p[offset + 1] & 0xFF) << 16
-                | (p[offset + 2] & 0xFF) << 8
-                | p[offset + 3] & 0xFF;
+        long ret = (p[offset + 0] & 0xFFL) << 24
+                | (p[offset + 1] & 0xFFL) << 16
+                | (p[offset + 2] & 0xFFL) << 8
+                | p[offset + 3] & 0xFFL;
         return ret;
     }
 
