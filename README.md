@@ -3,6 +3,7 @@
 - [kcp](https://github.com/skywind3000/kcp)
 
 需实现output方法
+```java
 KCP kcp = new KCP(10) {
     @Override
     protected void output(byte[] bytes, int size) {
@@ -12,3 +13,4 @@ KCP kcp = new KCP(10) {
         session.write(buff);
     }
 };
+```
