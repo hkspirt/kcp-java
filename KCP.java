@@ -339,6 +339,7 @@ public abstract class KCP {
             offset += size;
             seg.frg = count - i - 1;
             nsnd_que.add(seg);
+            length -= size;
         }
         return 0;
     }
