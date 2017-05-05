@@ -332,8 +332,9 @@ public abstract class KCP {
         int offset = 0;
 
         // 分片后加入到发送队列
+        int length = buffer.length;
         for (int i = 0; i < count; i++) {
-            int size = (int) (buffer.length > mss ? mss : buffer.length);
+            int size = (int) (length > mss ? mss : length);
             Segment seg = new Segment(size);
             System.arraycopy(buffer, offset, seg.data, 0, size);
             offset += size;
